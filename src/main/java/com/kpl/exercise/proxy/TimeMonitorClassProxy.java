@@ -25,6 +25,7 @@ public class TimeMonitorClassProxy implements MethodInterceptor {
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         TimeMonitorUtil.start(0);
         Object result = methodProxy.invokeSuper(o, objects);
+        System.out.println(o.getClass().getName());
         TimeMonitorUtil.finish(method.getName());
         return result;
     }
